@@ -8,19 +8,43 @@ function toPastParticiple(word: string): string {
   return new Inflectors(word.toLowerCase()).toPastParticiple();
 }
 
+// flip the comparison if it is more than or less than
+function handleMoreLess(tokens: any[]): string | null {
+  if (tokens.length < 3) return null;
+  
+  const firstWord = tokens[0].value.toLowerCase();
+  const lastWord = tokens[tokens.length - 1].value.toLowerCase();
+  
+  if (lastWord !== 'than') return null;
+  
+  if (firstWord === 'more') {
+    const middle = tokens.slice(1, -1).map(t => t.value).join(' ');
+    return `less ${middle} than`;
+  }
+  
+  if (firstWord === 'less') {
+    const middle = tokens.slice(1, -1).map(t => t.value).join(' ');
+    return `more ${middle} than`;
+  }
+  
+  return null;
+}
+
 export function guessInverse(relation: string): string {
   relation = relation.trim();
   
   // check if relation is "X of" or "X by" and return X
-  const lowerRelation = relation.toLowerCase();
-  if ((lowerRelation.endsWith(' of') || lowerRelation.endsWith(' by'))) {
+  if (relation.toLowerCase().endsWith(' of') || relation.toLowerCase().endsWith(' by')) {
     return relation.slice(0, relation.length - 3).trim();
   }
 
   const tokens = tagger.tagRawTokens(relation.split(' '));
+  
+  const comparisonResult = handleMoreLess(tokens);
+  if (comparisonResult) return comparisonResult;
+
   const verbToken = tokens.find((t: any) => t.pos?.startsWith('V'));
 
-  // Single word handling remains the same
   if (tokens.length === 1) {
     const token = tokens[0];
     if (!token.pos) return `${relation} of`;
@@ -31,7 +55,6 @@ export function guessInverse(relation: string): string {
     return `${token.value} of`;
   }
 
-  // Multi-word handling: replace verb if found, then append "of"
   if (verbToken) {
     const relationWords = relation.split(' ');
     const verbIndex = relationWords.findIndex(word => 
