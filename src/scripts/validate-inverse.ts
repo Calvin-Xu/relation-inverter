@@ -1,6 +1,11 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 import { guessInverse } from '../morphology';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 interface DictionaryEntry {
   [key: string]: string;
@@ -33,6 +38,6 @@ function validateInverses(): void {
   console.log('Failures have been written to assets/inverse-failures.json');
 }
 
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   validateInverses();
 } 

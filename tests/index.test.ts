@@ -2,59 +2,71 @@
 import { getInverseRelation } from '../src';
 
 test('founder', () => {
-  expect(getInverseRelation('founder')).toBe('is founder of');
+  expect(getInverseRelation('founder')).toBe('founder of');
+});
+
+test('studied at', () => {
+    expect(getInverseRelation('studied at')).toBe('studied at by');
+});
+
+test('greater than', () => {
+    expect(getInverseRelation('greater than')).toBe('greater than of');
+});
+
+test('taller than', () => {
+    expect(getInverseRelation('taller than')).toBe('taller than of');
 });
 
 test('founded', () => {
-    expect(getInverseRelation('founded')).toBe('is founded by');
+    expect(getInverseRelation('founded')).toBe('founded by');
 });
 
-test('is founder of', () => {
-    expect(getInverseRelation('is founder of')).toBe('founder');
+test('founder of', () => {
+    expect(getInverseRelation('founder of')).toBe('founder');
 });
 
-test('is roommate of', () => {
-    expect(getInverseRelation('is roommate of')).toBe('roommate');
+test('roommate of', () => {
+    expect(getInverseRelation('roommate of')).toBe('roommate');
 });
 
 test('wrote', () => {
-  expect(getInverseRelation('wrote')).toBe('is written by');
+  expect(getInverseRelation('wrote')).toBe('written by');
 });
 
 test('played', () => {
-  expect(getInverseRelation('played')).toBe('is played by');
+  expect(getInverseRelation('played')).toBe('played by');
 });
 
 test('created', () => {
-  expect(getInverseRelation('created')).toBe('is created by');
+  expect(getInverseRelation('created')).toBe('created by');
 });
 
 test('author', () => {
-  expect(getInverseRelation('author')).toBe('is authored by');
+  expect(getInverseRelation('author')).toBe('authored by');
 });
 
 test('authored', () => {
-    expect(getInverseRelation('authored')).toBe('is authored by');
+    expect(getInverseRelation('authored')).toBe('authored by');
 });
 
 test('fought', () => {
-    expect(getInverseRelation('fought')).toBe('is fought by');
+    expect(getInverseRelation('fought')).toBe('fought by');
 });
 
 test('employs', () => {
-    expect(getInverseRelation('employs')).toBe('is employed by');
+    expect(getInverseRelation('employs')).toBe('employed by');
 });
 
-test('is author of', () => {
-  expect(getInverseRelation('is author of')).toBe('author');
+test('author of', () => {
+  expect(getInverseRelation('author of')).toBe('author');
 });
 
-test('is authored by', () => {
-    expect(getInverseRelation('is authored by')).toBe('authored');
+test('authored by', () => {
+    expect(getInverseRelation('authored by')).toBe('authored');
 });
 
 test('alternative', () => {
-    expect(getInverseRelation('alternative')).toBe('is alternative of');
+    expect(getInverseRelation('alternative')).toBe('alternative of');
 });
 
 test('ruled by', () => {
@@ -70,27 +82,23 @@ test('friend of', () => {
 });
 
 test('led', () => {
-    expect(getInverseRelation('led')).toBe('is led by');
+    expect(getInverseRelation('led')).toBe('led by');
 });
 
-test('is led by', () => {
-    expect(getInverseRelation('is led by')).toBe('led');
+test('led by', () => {
+    expect(getInverseRelation('led by')).toBe('leads');
 });
 
-test('is mentored by', () => {
-    expect(getInverseRelation('is mentored by')).toBe('mentored');
+test('mentored by', () => {
+    expect(getInverseRelation('mentored by')).toBe('mentored');
 });
 
 test('mentored', () => {
-    expect(getInverseRelation('mentored')).toBe('is mentored by');
+    expect(getInverseRelation('mentored')).toBe('mentored by');
 });
 
 test('member of', () => {
     expect(getInverseRelation('member of')).toBe('has member');
-});
-
-test('is member of', () => {
-    expect(getInverseRelation('is member of')).toBe('member');
 });
 
 test('member', () => {
@@ -98,43 +106,39 @@ test('member', () => {
 });
 
 test('formed', () => {
-    expect(getInverseRelation('formed')).toBe('is formed by');
+    expect(getInverseRelation('formed')).toBe('formed by');
 });
 
-test('is formed by', () => {
-    expect(getInverseRelation('is formed by')).toBe('formed');
+test('formed by', () => {
+    expect(getInverseRelation('formed by')).toBe('formed');
 });
 
 test('overthrew', () => {
-    expect(getInverseRelation('overthrew')).toBe('is overthrown by');
+    expect(getInverseRelation('overthrew')).toBe('overthrown by');
 });
 
-test('is overthrown by', () => {
-    expect(getInverseRelation('is overthrown by')).toBe('overthrew');
+test('overthrown by', () => {
+    expect(getInverseRelation('overthrown by')).toBe('overthrew');
 });
 
 test('since', () => {
-    expect(getInverseRelation('since')).toBe('is the start time of');
+    expect(getInverseRelation('since')).toBe('the start time of');
 });
 
 test('due to', () => {
-    expect(getInverseRelation('due to')).toBe('is due to');
-});
-
-test('is due to', () => {
-    expect(getInverseRelation('is due to')).toBe('due to');
+    expect(getInverseRelation('due to')).toBe('reason for');
 });
 
 test('because', () => {
-    expect(getInverseRelation('because')).toBe('is the cause of');
+    expect(getInverseRelation('because')).toBe('the cause of');
 });
 
 test('cause of', () => {
-    expect(getInverseRelation('cause of')).toBe('is the cause of');
+    expect(getInverseRelation('cause of')).toBe('the cause of');
 });
 
-test('is the cause of', () => {
-    expect(getInverseRelation('is the cause of')).toBe('cause of');
+test('the cause of', () => {
+    expect(getInverseRelation('the cause of')).toBe('cause of');
 });
 
 test('controlled by', () => {
@@ -142,13 +146,13 @@ test('controlled by', () => {
 });
 
 test('controls', () => {
-    expect(getInverseRelation('controls')).toBe('is controlled by');
+    expect(getInverseRelation('controls')).toBe('controlled by');
 });
 
 test('investigated', () => {
-    expect(getInverseRelation('investigated')).toBe('is investigated by');
+    expect(getInverseRelation('investigated')).toBe('investigated by');
 });
 
-test('is investigated by', () => {
-    expect(getInverseRelation('is investigated by')).toBe('investigated');
+test('investigated by', () => {
+    expect(getInverseRelation('investigated by')).toBe('investigated');
 });

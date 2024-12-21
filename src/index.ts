@@ -1,12 +1,17 @@
-import { loadDictionary } from './dictionary';
 import { guessInverse } from './morphology';
+import defaultDictionary from '../assets/dictionary.json' assert { type: "json" };
 
-export function getInverseRelation(relation: string): string {
-  const dict = loadDictionary();
+export function getInverseRelation(relation: string, dictionary: Record<string, string> = defaultDictionary): string {
   const trimmedRelation = relation.trim();
   
-  if (dict[trimmedRelation]) {
-    return dict[trimmedRelation];
+  if (dictionary[trimmedRelation]) {
+    return dictionary[trimmedRelation];
   }
   return guessInverse(trimmedRelation);
+}
+
+export function initializeInverter() {
+  return {
+    getInverse: (relation: string) => getInverseRelation(relation)
+  };
 }
