@@ -61,7 +61,7 @@ export function guessInverse(relation: string): string {
       word.toLowerCase() === verbToken.value.toLowerCase()
     );
     relationWords[verbIndex] = toPastParticiple(verbToken.value);
-    return `${relationWords.join(' ')} of`;
+    return `${relationWords.join(' ')} by`;
   }
 
   return `${relation} of`;
