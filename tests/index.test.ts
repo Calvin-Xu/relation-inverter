@@ -9,11 +9,11 @@ test('studied at', () => {
 });
 
 test('greater than', () => {
-    expect(getInverseRelation('greater than')).toBe('greater than of');
+    expect(getInverseRelation('greater than')).toBe('less than');
 });
 
 test('taller than', () => {
-    expect(getInverseRelation('taller than')).toBe('taller than of');
+    expect(getInverseRelation('taller than')).toBe('shorter than');
 });
 
 test('founded', () => {

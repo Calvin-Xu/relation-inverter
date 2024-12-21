@@ -1,12 +1,19 @@
 {
   "name": "relation-inverter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lightweight generator of inverse natural language relation type strings",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "assets"
+  ],
   "scripts": {
     "test": "npx jest --verbose",
     "validate-inverses": "npx tsx src/scripts/validate-inverse.ts",
-    "build-web": "esbuild src/index.ts --bundle --outfile=docs/bundle.js --platform=browser --global-name=relationInverter --loader:.json=json --minify --tree-shaking=true"
+    "build-web": "esbuild src/index.ts --bundle --outfile=docs/bundle.js --platform=browser --global-name=relationInverter --loader:.json=json --minify --tree-shaking=true",
+    "build": "tsc",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -38,5 +45,14 @@
     "tsx": "^4.19.2",
     "typescript": "^5.7.2"
   },
-  "type": "module"
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "engines": {
+    "node": ">=16"
+  }
 }
