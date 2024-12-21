@@ -155,3 +155,15 @@ test('investigated', () => {
 test('investigated by', () => {
     expect(getInverseRelation('investigated by')).toBe('investigated');
 });
+
+test('could have benefitted from', () => {
+    expect(getInverseRelation('could have benefitted from')).toBe('could have been benefitted from by');
+});
+
+test('could have been killed by', () => {
+    expect(getInverseRelation('could have been killed by')).toBe('could have killed');
+});
+
+test('could have killed', () => {
+    expect(getInverseRelation('could have killed')).toBe('could have been killed by');
+});
