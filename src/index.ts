@@ -9,9 +9,3 @@ export function getInverseRelation(relation: string, dictionary: Record<string, 
   }
   return guessInverse(trimmedRelation);
 }
-
-export function initializeInverter() {
-  return {
-    getInverse: (relation: string) => getInverseRelation(relation)
-  };
-}

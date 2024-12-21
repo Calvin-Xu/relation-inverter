@@ -33,6 +33,11 @@ function handleMoreLess(tokens: any[]): string | null {
 export function guessInverse(relation: string): string {
   relation = relation.trim();
   
+  // handle "is " prefix
+  if (relation.toLowerCase().startsWith('is ')) {
+    relation = relation.slice(3);
+  }
+  
   // check if relation is "X of" or "X by" and return X
   if (relation.toLowerCase().endsWith(' of') || relation.toLowerCase().endsWith(' by')) {
     return relation.slice(0, relation.length - 3).trim();
