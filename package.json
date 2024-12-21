@@ -17,7 +17,11 @@
   ],
   "jest": {
     "preset": "ts-jest",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "(.+)\\.js": "$1"
+    },
+    "extensionsToTreatAsEsm": [".ts"]
   },
   "author": "Pinlin [Calvin] Xu",
   "license": "ISC",

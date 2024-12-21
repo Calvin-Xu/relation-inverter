@@ -1,6 +1,6 @@
 declare module 'wink-pos-tagger' {
   function posTagger(): {
-    tagSentence(text: string): Array<{
+    tagRawTokens(tokens: string[]): Array<{
       value: string;
       pos: string;
     }>;

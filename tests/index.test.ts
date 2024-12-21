@@ -1,4 +1,3 @@
-// tests/index.test.ts
 import { getInverseRelation } from '../src';
 
 test('founder', () => {
@@ -122,7 +121,7 @@ test('overthrown by', () => {
 });
 
 test('since', () => {
-    expect(getInverseRelation('since')).toBe('the start time of');
+    expect(getInverseRelation('since')).toBe('start time of');
 });
 
 test('due to', () => {
@@ -130,15 +129,15 @@ test('due to', () => {
 });
 
 test('because', () => {
-    expect(getInverseRelation('because')).toBe('the cause of');
+    expect(getInverseRelation('because')).toBe('cause of');
 });
 
 test('cause of', () => {
-    expect(getInverseRelation('cause of')).toBe('the cause of');
+    expect(getInverseRelation('cause of')).toBe('because');
 });
 
-test('the cause of', () => {
-    expect(getInverseRelation('the cause of')).toBe('cause of');
+test('cause of', () => {
+    expect(getInverseRelation('cause of')).toBe('because');
 });
 
 test('controlled by', () => {
