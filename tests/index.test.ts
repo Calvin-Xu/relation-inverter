@@ -167,3 +167,7 @@ test('could have been killed by', () => {
 test('could have killed', () => {
     expect(getInverseRelation('could have killed')).toBe('could have been killed by');
 });
+
+test('nargled at', () => {
+    expect(getInverseRelation('nargled at')).toBe('nargled at by');
+});

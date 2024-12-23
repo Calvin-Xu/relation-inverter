@@ -90,7 +90,7 @@ export function guessInverse(relation: string): string {
   );
 
   if (verbIndex === -1) {
-    return tokens.map(t => t.value).join(' ') + ' of';
+    return tokens.map(t => t.value).join(' ') + (lastToken === 'at' ? ' by' : ' of');
   }
 
   // Handle single verb
